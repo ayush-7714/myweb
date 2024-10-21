@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Real-Time Clock</title>
+    <style>
+      /* Optional: Style for better visibility */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 20%;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Current Time</h1>
+    
+    <!-- A paragraph where the current time will be displayed -->
+    <p id="current-time"></p>
+    
+    <script>
+      function showTime() {
+        // Create a new Date object
+        let currentTime = new Date();
+        
+        // Get the current hours, minutes, and seconds
+        let hours = currentTime.getHours();
+        let minutes = currentTime.getMinutes();
+        let seconds = currentTime.getSeconds();
+        
+        // Add leading zeros to minutes and seconds if needed
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        
+        // Format the time as HH:MM:SS
+        let timeString = hours + ":" + minutes + ":" + seconds;
+        
+        // Display the current time in the paragraph
+        document.getElementById("current-time").innerHTML = "Current Time: " + timeString;
+      }
+
+      // Call the function immediately to show the time on load
+      showTime();
+
+      // Continuously update the time every second
+      setInterval(showTime, 1000);
+    </script>
+  </body>
+</html>
